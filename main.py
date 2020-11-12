@@ -64,9 +64,9 @@ def crawl(next_link):
 
 
 while True:
-    wiki_link = input("Enter wiki title to crawl from (e.g. to crawl from "
-                      "\"https://en.wikipedia.org/wiki/Fizz_buzz\", enter \"Fizz_Buzz\"."
-                      "\nIf you would like to exit the program, type \"EXIT\" (case sensitive): \n")
-    if input == "EXIT" or input == "\"EXIT\"":
+    article = input("Enter wiki title to crawl from (e.g. to crawl from "
+                    "\"https://en.wikipedia.org/wiki/Fizz_buzz\", enter \"Fizz_Buzz\"."
+                    "\nIf you would like to exit the program, type \"stop\": ")
+    if article.lower() == "stop" or article == "\"stop\"":
         break
-    crawl(wiki_link)
+    crawl(article)
