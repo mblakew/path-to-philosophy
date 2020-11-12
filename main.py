@@ -55,7 +55,7 @@ while True:
 
     print(title.string)
     if title.string == "Philosophy":
-        print("You crawled to Philosophy!")
+        print("You crawled through {} pages to Philosophy!".format(len(visited_links)))
         exit()
 
     paragraphs = soup.find(id="bodyContent").findAll("p")
@@ -78,7 +78,7 @@ while True:
                             try:
                                 link = text['href']
                                 # print("X: " + x)
-                                if link not in visited_links:
+                                if link not in visited_links and "." not in link:
                                     found_next_url = True
                                     # print(x)
                                     next_link = link
