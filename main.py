@@ -1,8 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
 
-#test
-# graph search problem
 
 # expects url in form /wiki/someTextHere
 def is_valid_url(url):
@@ -34,12 +32,13 @@ def crawl(next_link):
             print("You crawled through {} pages to Philosophy!\n".format(len(visited_links)))
             return
 
-        paragraphs = soup.find(id="bodyContent").findAll("p")
+        # paragraphs = soup.find(id="bodyContent").findAll("p")
         # paragraphs = content.findAll('p')
 
         found_next_url = False
-        for p in paragraphs:
-            if not found_next_url:
+        for p in soup.find(id="bodyContent").find_all("p"):
+            # avoiding <p> tags nested within other elements, such as tables
+            if not found_next_url or p.parent.id != "bodyContent":
                 parenthesis = False
                 for text in p.contents:
                     if not found_next_url:
