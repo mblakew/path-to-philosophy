@@ -19,7 +19,12 @@ def crawl(next_link):
 
     while True:
         next_link = "https://en.wikipedia.org" + next_link
-        res = requests.get(next_link)
+        try:
+            res = requests.get(next_link)
+        except requests.ConnectionError as e:
+            print("Invalid Wikipedia URL, " + next_link + " does not exist! Please try again.\n")
+            return
+
         content = res.content
 
         soup = BeautifulSoup(content, 'html.parser')
