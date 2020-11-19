@@ -1,4 +1,7 @@
 from bs4 import BeautifulSoup
+from tkinter import *
+from PIL import Image, ImageTk
+import pandas as pd
 import requests
 
 
@@ -74,7 +77,14 @@ def crawl(next_link):
             return
 
 
+window = Tk()
+window.configure(background="firebrick2")
+window.geometry("525x700")
+window.title("POKEDEX v.0.1")
+# window.mainloop()
 while True:
+    window.update_idletasks()
+    window.update()
     article = input("Enter wiki title to crawl from (e.g. to crawl from "
                     "\"https://en.wikipedia.org/wiki/Fizz_buzz\", enter \"Fizz_Buzz\"."
                     "\nIf you would like to exit the program, type \"stop\": ")
