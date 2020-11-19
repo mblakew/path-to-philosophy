@@ -47,8 +47,7 @@ def crawl(next_link):
 
             found_next_url = False
             for p in soup.find(id="bodyContent").find_all("p"):
-                # avoiding <p> tags nested within other elements, such as tables
-                if not found_next_url or p.parent.id != "bodyContent":
+                if not found_next_url:
                     parenthesis = False
                     for text in p.contents:
                         if not found_next_url:
