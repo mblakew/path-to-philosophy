@@ -1,5 +1,8 @@
 # Path to Philosophy
-Given a wikipedia page, crawl to Philosophy.
+Given the title of a wikipedia page, crawl to Philosophy.
+
+![](https://i.imgur.com/hqTnTVx.gif)
+<br/>
 
 It was determined in May of 2011 that 94.11% of all Wikipedia articles eventually led to the Philosophy article by visiting the first link on each page. The rest lead to dead ends or continous loops.
 
